@@ -5,14 +5,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    private Button answerYesButton, answerNoButton;
+  //  private Button answerYesButton, answerNoButton;
     private EditText nameEditText;
 
 
@@ -21,9 +24,28 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        answerYesButton = (Button) findViewById(R.id.answer_yes_button);
-        answerNoButton = (Button) findViewById(R.id.answer_no_button);
+     //  Button answerYesButton = (Button) findViewById(R.id.answer_yes_button);
+       // Button answerNoButton = (Button) findViewById(R.id.answer_no_button);
         nameEditText = (EditText) findViewById(R.id.name_edit_text);
+
+        String[] eten = {"kaas", "eieren", "melk", "boter"};
+    // default template (simple)
+    //    ListAdapter theAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eten);
+
+        ListAdapter theAdapter = new ArrayAdapter<>(this, R.layout.row_layout, eten);
+
+        ListView listview = (ListView) findViewById(R.id.listview);
+        listview.setAdapter(theAdapter);
+        listview.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        String showPicked = "You picked " + String.valueOf(parent.getItemAtPosition(position));
+
+                        Toast.makeText(MainActivity.this, showPicked, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 
 
