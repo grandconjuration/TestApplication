@@ -8,5 +8,6 @@
     <string name="answer_no">This means no</string>
     <string name="answer_yes">This means yes</string>
     <string name="first_text">This is me, who is you?</string>
+    <string name="options_exit_text">Exit</string>
 
 </resources>

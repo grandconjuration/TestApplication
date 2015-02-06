@@ -1,5 +1,6 @@
 package nl.simonwhiteley.myapplication;
 
+import android.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -64,6 +65,14 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            DialogFragment myFragment = new MyDialogFragment();
+
+            myFragment.show(getFragmentManager(), "wtf");
+
+            return true;
+        } else if (id == R.id.exit_the_app) {
+            finish();
             return true;
         }
 
