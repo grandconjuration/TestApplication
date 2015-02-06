@@ -9,5 +9,9 @@
     <string name="answer_yes">This means yes</string>
     <string name="first_text">This is me, who is you?</string>
     <string name="options_exit_text">Exit</string>
+    <string name="enter_name_text_view">Enter your name:</string>
+    <string name="enter_name_button">Enter</string>
+    <string name="calling_activity_message">The calling activity was</string>
+    <string name="new_activity_button_text">New activity</string>
 
 </resources>

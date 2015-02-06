@@ -1,6 +1,7 @@
 package nl.simonwhiteley.myapplication;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -94,5 +96,26 @@ public class MainActivity extends ActionBarActivity {
         String yourNoResponse = "Aaay naaolmao " + name;
 
         Toast.makeText(this, yourNoResponse, Toast.LENGTH_SHORT).show();
+    }
+
+    public void openNewActivity(View view) {
+        Intent getNameScreenIntent = new Intent(this, SecondScreen.class);
+
+        final int result = 1;
+
+        getNameScreenIntent.putExtra("callingActivity", "MainActivity");
+
+        startActivityForResult(getNameScreenIntent, result);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        TextView usersNameMessage = (TextView) findViewById(R.id.name_edit_text);
+
+        String nameSentBack = data.getStringExtra("UsersName");
+
+        usersNameMessage.append(" " + nameSentBack);
     }
 }
