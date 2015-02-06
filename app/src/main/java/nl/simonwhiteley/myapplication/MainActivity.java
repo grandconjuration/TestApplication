@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -32,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
     // default template (simple)
     //    ListAdapter theAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eten);
 
-        ListAdapter theAdapter = new ArrayAdapter<>(this, R.layout.row_layout, eten);
+        ListAdapter theAdapter = new MyAdapter(this, eten);
 
         ListView listview = (ListView) findViewById(R.id.listview);
         listview.setAdapter(theAdapter);
