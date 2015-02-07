@@ -111,11 +111,13 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode != RESULT_CANCELED) {
 
-        TextView usersNameMessage = (TextView) findViewById(R.id.name_edit_text);
+            TextView usersNameMessage = (TextView) findViewById(R.id.name_edit_text);
 
-        String nameSentBack = data.getStringExtra("UsersName");
+            String nameSentBack = data.getStringExtra("UsersName");
 
-        usersNameMessage.append(" " + nameSentBack);
+            usersNameMessage.append(" " + nameSentBack);
+        }
     }
 }
