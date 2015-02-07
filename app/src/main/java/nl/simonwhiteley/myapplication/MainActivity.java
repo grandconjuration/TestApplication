@@ -30,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
        // Button answerNoButton = (Button) findViewById(R.id.answer_no_button);
         nameEditText = (EditText) findViewById(R.id.name_edit_text);
 
-        String[] eten = {"kaas", "eieren", "melk", "boter"};
+        String[] eten = {"kaas", "eieren", "melk", "boter", "brood", "chips", "friet", "ham", "bacon", "pizza", "aardappellen", "tomaten"};
     // default template (simple)
     //    ListAdapter theAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eten);
 
@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
 
             DialogFragment myFragment = new MyDialogFragment();
 
-            myFragment.show(getFragmentManager(), "wtf");
+            myFragment.show(getFragmentManager(), "thisDialog");
 
             return true;
         } else if (id == R.id.exit_the_app) {
